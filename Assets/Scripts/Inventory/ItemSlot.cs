@@ -32,6 +32,9 @@ public abstract class ItemSlot : MonoBehaviour {
 	{
 		if(show)
 		{
+			if(item == null)
+				return;
+
 			string ToolTipText = item.GetItemDescription();
 			UITooltip.ShowText(ToolTipText);
 		}
