@@ -4,28 +4,35 @@ using System.Collections;
 public class Equipment : MonoBehaviour {
 
 	public Item[] items;
+	public GameObject EquipmentPrefab;
+	private GameObject _GUIRef;
+	private bool _showGUI = false;
 	const GUIGroups GUIGroup = GUIGroups.Charactor;
+
 
 	// Use this for initialization
 	void Start () {
 		items = new Item[4];
+		ToggleMyGUI(GUIGroups.Charactor);
 	}
 
 	public void ToggleMyGUI (GUIGroups group)
 	{
-//		if(group != GUIGroup)
-//			return;
-//		
-//		if(_showGUI)
-//		{
-//			NGUITools.Destroy(_GUIRef);
-//		}
-//		else
-//		{
-//			MakeGUI();
-//		}
-//		
-//		_showGUI =! _showGUI;
+		if(group != GUIGroup)
+			return;
+	
+		if(_showGUI)
+		{
+			NGUITools.Destroy(_GUIRef);
+		}
+		else
+		{
+			GameObject GUIRoot = GameObject.FindGameObjectWithTag("UIRoot");
+			_GUIRef = NGUITools.AddChild(GUIRoot, EquipmentPrefab);
+			_GUIRef.GetComponent<MakeEquipment>().equipment = this;
+		}
+
+		_showGUI =! _showGUI;
 	}
 	
 	public Item GetItem (SlotType slot)
@@ -66,4 +73,11 @@ public class Equipment : MonoBehaviour {
 		return false;
 	}
 
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.C))
+		{
+			ToggleMyGUI(GUIGroups.Charactor);
+		}
+	}
 }
