@@ -32,20 +32,14 @@ public abstract class ItemSlot : MonoBehaviour {
 	{
 		if(show)
 		{
-			UITooltip.ShowText(GetItemDetails());
+			string ToolTipText = item.GetItemDescription();
+			UITooltip.ShowText(ToolTipText);
 		}
 		else
 		{
 			UITooltip.ShowText("");
 		}
 	}
-
-	string GetItemDetails()
-	{
-
-		return ("hello");
-	}
-	
 	
 	void OnDragEnd ()
 	{
