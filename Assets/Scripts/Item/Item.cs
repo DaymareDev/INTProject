@@ -65,6 +65,11 @@ public class Item {
 	}
 
 	public virtual void Use(){}
+
+	public virtual string GetItemDescription()
+	{
+		return ("no info");
+	}
 	
 }
 

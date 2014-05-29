@@ -30,4 +30,9 @@ public class Armor : Item {
 		return new Armor(this);
 	}
 
+	public override string GetItemDescription ()
+	{
+		return ("Armor");
+	}
+
 }

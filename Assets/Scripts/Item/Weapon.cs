@@ -25,4 +25,9 @@ public class Weapon : Item {
 	{
 		return new Weapon(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		return ("Armor");
+	}
 }

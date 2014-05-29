@@ -15,4 +15,9 @@ public class Enhancer : Item {
 	{
 		return new Enhancer(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		return ("Armor");
+	}
 }

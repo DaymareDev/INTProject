@@ -19,4 +19,9 @@ public class LaserWeapon : Weapon {
 	{
 		return new LaserWeapon(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		return ("Armor");
+	}
 }

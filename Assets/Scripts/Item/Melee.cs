@@ -17,4 +17,9 @@ public class Melee : Weapon {
 	{
 		return new Melee(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		return ("Armor");
+	}
 }

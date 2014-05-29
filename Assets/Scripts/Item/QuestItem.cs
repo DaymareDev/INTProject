@@ -15,4 +15,9 @@ public class QuestItem : Item {
 	{
 		return new QuestItem(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		return ("Armor");
+	}
 }

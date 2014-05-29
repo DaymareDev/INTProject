@@ -18,4 +18,9 @@ public class MagneticWeapon : Weapon {
 	{
 		return new MagneticWeapon(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		return ("Armor");
+	}
 }

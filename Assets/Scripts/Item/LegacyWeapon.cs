@@ -17,4 +17,9 @@ public class LegacyWeapon : Weapon {
 	{
 		return new LegacyWeapon(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		return ("Armor");
+	}
 }

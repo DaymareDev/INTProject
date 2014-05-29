@@ -14,4 +14,9 @@ public class Consumable : Item {
 	}
 
 	public override void Use(){}
+
+	public override string GetItemDescription ()
+	{
+		return ("Armor");
+	}
 }
