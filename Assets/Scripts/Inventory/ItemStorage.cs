@@ -62,23 +62,7 @@ public class ItemStorage : MonoBehaviour {
 		StorageSlotMaker s = _GUIRef.GetComponent<StorageSlotMaker>();
 		s.BuildSlots(MaxSlots, this, StorageName);
 	}
-
-//	public bool Add(int slot, Item item)
-//	{
-//	
-//		///might need - 1 here slots gofrom 0
-//		if(slot < Items.Length)
-//		{
-//			// add the current item to that slot
-//			Items[slot] = item;
-//
-//			return true;
-//		}
-//
-//		return false;
-//	}
-
-
+	
 	public bool Additem(Item item)
 	{
 		for (int i = 0; i < Items.Length; i++) 
