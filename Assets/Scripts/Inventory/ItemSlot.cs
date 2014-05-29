@@ -10,15 +10,15 @@ public abstract class ItemSlot : MonoBehaviour {
 	public static Item DraggedItem;
 	public static ItemSlot DraggedFromSlot;
 
-	abstract protected Item observedItem{get;}
+	abstract protected Item observedItem {get;}
 	abstract protected bool Replace (Item ritem);
 
-	abstract protected bool PLayersInventoryCheck();
+	abstract protected bool PlayersInventoryCheck();
 	abstract protected bool AddToPlayersInventory(Item item);
 
 	void OnHover(bool isOver)
 	{
-
+        
 	}
 
 	void OnDragEnd ()
@@ -87,7 +87,7 @@ public abstract class ItemSlot : MonoBehaviour {
 
 	void OnDoubleClick()
 	{
-		if(!PLayersInventoryCheck())
+		if(!PlayersInventoryCheck())
 		{
 			if(AddToPlayersInventory(item) == true)
 			{

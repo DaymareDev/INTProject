@@ -17,7 +17,7 @@ public class StorageSlot : ItemSlot {
 		return inventory.Add(SlotID, item);
 	}
 
-	protected override bool PLayersInventoryCheck ()
+	protected override bool PlayersInventoryCheck ()
 	{
 		return inventory.PlayersInventory ? true : false;
 	}

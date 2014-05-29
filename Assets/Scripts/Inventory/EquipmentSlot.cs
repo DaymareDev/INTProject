@@ -17,7 +17,7 @@ public class EquipmentSlot : ItemSlot {
 		return equipment.Equip(item, slot);
 	}
 
-	protected override bool PLayersInventoryCheck ()
+	protected override bool PlayersInventoryCheck ()
 	{
 		return false;
 	}
