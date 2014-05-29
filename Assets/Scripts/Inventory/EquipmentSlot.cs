@@ -5,12 +5,7 @@ public class EquipmentSlot : ItemSlot {
 
 	public Equipment equipment;
 	public SlotType slot;
-	private ItemStorage _playerInventory;
 
-	void Awake()
-	{
-		_playerInventory =(ItemStorage) GameObject.FindGameObjectWithTag("Player").GetComponent<ItemStorage>();
-	}
 
 	protected override Item observedItem {
 		get {

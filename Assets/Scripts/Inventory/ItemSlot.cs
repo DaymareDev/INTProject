@@ -16,6 +16,13 @@ public abstract class ItemSlot : MonoBehaviour {
 	abstract protected bool PlayersInventoryCheck();
 	abstract protected bool AddToPlayersInventory(Item item);
 
+	protected ItemStorage _playerInventory;
+	
+	void Awake()
+	{
+		_playerInventory =(ItemStorage) GameObject.FindGameObjectWithTag("Player").GetComponent<ItemStorage>();
+	}
+
 	void OnHover(bool isOver)
 	{
         

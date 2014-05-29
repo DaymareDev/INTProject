@@ -11,6 +11,7 @@ public class ItemStorage : MonoBehaviour {
 	public string StorageName = "Inventory";
 	public bool PlayersInventory;
 	public GameObject StoragePrefab;
+	public ItemDataBase Database;
 
 	public Item[] Items;
 
@@ -22,12 +23,12 @@ public class ItemStorage : MonoBehaviour {
 
 		Items = new Item[MaxSlots];
 
-		Items[1] = GameManager.Instance.itemDatabase.Get(ItemType.LegacyWeapon, 0);
-		Items[2] = GameManager.Instance.itemDatabase.Get(ItemType.LaserWeapon, 0);
+		Items[1] = Database.Get(ItemType.LegacyWeapon, 0);
+		Items[2] = Database.Get(ItemType.LaserWeapon, 0);
 
-		Items[3] = GameManager.Instance.itemDatabase.Get(ItemType.Misc, 0);
-		Items[4] = GameManager.Instance.itemDatabase.Get(ItemType.Misc, 0);
-		Items[5] = GameManager.Instance.itemDatabase.Get(ItemType.Misc, 0);
+		Items[3] = Database.Get(ItemType.Misc, 0);
+		Items[4] = Database.Get(ItemType.Misc, 0);
+		Items[5] = Database.Get(ItemType.Misc, 0);
 
 		ToggleMyGUI();
 	}
