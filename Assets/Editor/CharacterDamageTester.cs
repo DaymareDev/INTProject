@@ -12,7 +12,7 @@ public class CharacterDamageTester : Editor
         {
             var character = (INTCharacter) target;
             character[INTAttributeTypes.Health].Damage += 10;
-            Debug.Log(character.GetCurrent(INTAttributeTypes.Health));
+            Debug.Log(character.GetCurrentPercentageOf(INTAttributeTypes.Health));
         }
     }
 
