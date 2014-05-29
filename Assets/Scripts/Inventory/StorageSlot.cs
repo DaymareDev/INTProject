@@ -4,7 +4,7 @@ using System.Collections;
 public class StorageSlot : ItemSlot {
 
 	public int SlotID;
-	public Storage inventory;
+	public ItemStorage inventory;
 
 	protected override Item observedItem {
 		get {

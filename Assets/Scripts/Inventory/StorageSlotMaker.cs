@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class StorageSlotMaker : MonoBehaviour {
@@ -6,7 +6,7 @@ public class StorageSlotMaker : MonoBehaviour {
 	public UIGrid StorageGrid;
 	public UILabel TitleLabel;
 
-	public void BuildSlots(int SlotAmount, Storage storage, string windowTitle)
+	public void BuildSlots(int SlotAmount, ItemStorage storage, string windowTitle)
 	{
 		for(int a = 0; a < SlotAmount; a++)
 		{

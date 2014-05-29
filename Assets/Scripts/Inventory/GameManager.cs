@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject GUIRoot;
 	public GameObject StoragePrefab;
 	public GameObject StorageSlotTemplatePrefab;
-	public Storage PlayerInventory;
+	public ItemStorage PlayerInventory;
 
 	void Awake()
 	{
