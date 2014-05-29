@@ -24,7 +24,7 @@ public class StorageSlot : ItemSlot {
 
 	protected override bool AddToPlayersInventory (Item item)
 	{
-		if(GameManager.Instance.PlayerInventory.Additem(item))
+		if(_playerInventory.Additem(item))
 		{
 			return true;
 		}

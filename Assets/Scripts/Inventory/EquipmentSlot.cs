@@ -6,6 +6,7 @@ public class EquipmentSlot : ItemSlot {
 	public Equipment equipment;
 	public SlotType slot;
 
+
 	protected override Item observedItem {
 		get {
 			return (equipment != null) ? equipment.GetItem(slot) : null;
@@ -24,7 +25,7 @@ public class EquipmentSlot : ItemSlot {
 
 	protected override bool AddToPlayersInventory (Item item)
 	{
-		if(GameManager.Instance.PlayerInventory.Additem(item))
+		if(_playerInventory.Additem(item))
 		{
 			return true;
 		}

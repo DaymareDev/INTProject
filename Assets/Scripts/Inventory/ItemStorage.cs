@@ -10,6 +10,8 @@ public class ItemStorage : MonoBehaviour {
 	public int MaxSlots;
 	public string StorageName = "Inventory";
 	public bool PlayersInventory;
+	public GameObject StoragePrefab;
+	public ItemDataBase Database;
 
 	public Item[] Items;
 
@@ -18,26 +20,15 @@ public class ItemStorage : MonoBehaviour {
 
 	void Start()
 	{
-		///tell the gamemanager i am a player inventory
-		if(PlayersInventory)
-		{
-			if(GameManager.Instance.PlayerInventory != null)
-			{
-				Debug.LogError("ERROR:You can only have 1 player inventory");
-				return;
-			}
-
-			GameManager.Instance.PlayerInventory = this;
-		}
 
 		Items = new Item[MaxSlots];
 
-		Items[1] = GameManager.Instance.itemDatabase.Get(ItemType.LegacyWeapon, 0);
-		Items[2] = GameManager.Instance.itemDatabase.Get(ItemType.LaserWeapon, 0);
+		Items[1] = Database.Get(ItemType.LegacyWeapon, 0);
+		Items[2] = Database.Get(ItemType.LaserWeapon, 0);
 
-		Items[3] = GameManager.Instance.itemDatabase.Get(ItemType.Misc, 0);
-		Items[4] = GameManager.Instance.itemDatabase.Get(ItemType.Misc, 0);
-		Items[5] = GameManager.Instance.itemDatabase.Get(ItemType.Misc, 0);
+		Items[3] = Database.Get(ItemType.Misc, 0);
+		Items[4] = Database.Get(ItemType.Misc, 0);
+		Items[5] = Database.Get(ItemType.Misc, 0);
 
 		ToggleMyGUI();
 	}
@@ -58,7 +49,8 @@ public class ItemStorage : MonoBehaviour {
 
 	void MakeGUI ()
 	{
-		_GUIRef = NGUITools.AddChild(GameManager.Instance.GUIRoot, GameManager.Instance.StoragePrefab);
+		GameObject GUIRoot = GameObject.FindGameObjectWithTag("UIRoot");
+		_GUIRef = NGUITools.AddChild(GUIRoot, StoragePrefab);
 		StorageSlotMaker s = _GUIRef.GetComponent<StorageSlotMaker>();
 		s.BuildSlots(MaxSlots, this, StorageName);
 	}
