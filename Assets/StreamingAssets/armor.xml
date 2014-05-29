@@ -2,19 +2,19 @@
 <ArrayOfArmor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Armor>
     <id>0</id>
-    <ItemName />
+    <ItemName>Vest</ItemName>
     <Stackable>false</Stackable>
     <MaxStack>0</MaxStack>
     <Type>Armor</Type>
     <ItemGameObject />
-    <Atlas />
-    <ItemSprite />
-    <Description />
-    <Slot>Helm</Slot>
+    <Atlas>UIElements</Atlas>
+    <ItemSprite>sand</ItemSprite>
+    <Description>This is a Vest</Description>
+    <Slot>Chest</Slot>
     <StackAmount>1</StackAmount>
     <Category>LightArmor</Category>
-    <ArmorValue>0</ArmorValue>
-    <DefenseValue>0</DefenseValue>
+    <ArmorValue>10</ArmorValue>
+    <DefenseValue>10</DefenseValue>
   </Armor>
   <Armor>
     <id>1</id>

@@ -26,17 +26,4 @@
     <Slot>None</Slot>
     <StackAmount>1</StackAmount>
   </Misc>
-  <Misc>
-    <id>2</id>
-    <ItemName />
-    <Stackable>false</Stackable>
-    <MaxStack>0</MaxStack>
-    <Type>Misc</Type>
-    <ItemGameObject />
-    <Atlas />
-    <ItemSprite />
-    <Description />
-    <Slot>None</Slot>
-    <StackAmount>1</StackAmount>
-  </Misc>
 </ArrayOfMisc>

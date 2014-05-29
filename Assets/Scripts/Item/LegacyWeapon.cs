@@ -20,6 +20,7 @@ public class LegacyWeapon : Weapon {
 
 	public override string GetItemDescription ()
 	{
-		return ("Armor");
+		string s = base.ItemName + "\n" + base.Description + "\n" + "Reload Time: " + ReloadTime;
+		return (s);
 	}
 }

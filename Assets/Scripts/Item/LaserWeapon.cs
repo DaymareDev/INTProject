@@ -22,6 +22,7 @@ public class LaserWeapon : Weapon {
 
 	public override string GetItemDescription ()
 	{
-		return ("Armor");
+		string s = base.ItemName + "\n" + base.Description + "\n" + "Cool Down Time: " + CoolDownTime;
+		return (s);
 	}
 }

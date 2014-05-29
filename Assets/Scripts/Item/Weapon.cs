@@ -28,6 +28,7 @@ public class Weapon : Item {
 
 	public override string GetItemDescription ()
 	{
-		return ("Armor");
+		string s = base.ItemName + "\n" + "[0088FF]" + base.Description + "\n" + "Damage: " + MinDamage + " / " + MaxDamage + "\n" + "Range: " + MinRange + " / " + MaxRange + "\n" + "CriticalStrike: " + CriticalStrike;
+		return (s);
 	}
 }

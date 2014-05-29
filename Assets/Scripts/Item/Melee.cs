@@ -20,6 +20,7 @@ public class Melee : Weapon {
 
 	public override string GetItemDescription ()
 	{
-		return ("Armor");
+		string s = base.ItemName + "\n" + base.Description + "\n" + "Exhaustion: " + Exhaustion;
+		return (s);
 	}
 }

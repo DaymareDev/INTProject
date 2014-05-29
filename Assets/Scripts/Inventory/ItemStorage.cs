@@ -28,7 +28,7 @@ public class ItemStorage : MonoBehaviour {
 
 		Items[3] = Database.Get(ItemType.Misc, 0);
 		Items[4] = Database.Get(ItemType.Misc, 0);
-		Items[5] = Database.Get(ItemType.Misc, 0);
+		Items[5] = Database.Get(ItemType.Armor, 0);
 
 		ToggleMyGUI();
 	}
@@ -146,5 +146,15 @@ public class ItemStorage : MonoBehaviour {
 
 
 	public Item GetItem (int slot) { return (slot < Items.Length) ? Items[slot] : null; }
-	
+
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.I))
+		{
+			if(PlayersInventory)
+			{
+				ToggleMyGUI();
+			}
+		}
+	}
 }

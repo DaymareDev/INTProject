@@ -32,7 +32,8 @@ public class Armor : Item {
 
 	public override string GetItemDescription ()
 	{
-		return ("Armor");
+		string s = "[0088FF]"  + base.ItemName + "\n" + base.Description + "\n" + "Armor Value: " + ArmorValue + "\n" + "Defence Value: " + DefenseValue;
+		return (s);
 	}
 
 }

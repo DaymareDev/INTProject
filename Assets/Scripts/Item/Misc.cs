@@ -18,6 +18,7 @@ public class Misc : Item {
 
 	public override string GetItemDescription ()
 	{
-		return ("Armor");
+		string s = base.ItemName + "\n" + base.Description;
+		return (s);
 	}
 }

@@ -21,6 +21,7 @@ public class MagneticWeapon : Weapon {
 
 	public override string GetItemDescription ()
 	{
-		return ("Armor");
+		string s = base.ItemName + "\n" + base.Description + "\n" + "Battery Recharge: " + BatteryRecharge;
+		return (s);
 	}
 }
