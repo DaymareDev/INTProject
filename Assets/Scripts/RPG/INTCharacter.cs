@@ -21,23 +21,64 @@ public class INTCharacter : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-	     
+
         for (int i = 0; i < _attributes.Length; i++)
         {
             INTAttribute attrib = new INTAttribute
             {
-                Base = i == (int)INTAttributeTypes.MaxHealth ? 100 : 0,
-                Modifier = 0,
+                Base = 0,
+                BaseModifier = 0,
                 Multiplier = 1f,
                 Total = 0f
-            };               
-	    }
+            };
+            _attributes[i] = attrib;
+        }
+        _modifiers.Add(new BaseHealthModifier());
+
+        UpdateAttributes();
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    /// <summary>
+    /// Should be called when the player is modified in any way
+    /// (Equipment change, attribute change, Skill Change, BaseModifier Change)
+    /// </summary>
+    public void UpdateAttributes()
+    {
+        for (int i = 0; i < _attributes.Length; i++)
+        {
+            var intAttribute = _attributes[i];
+            intAttribute.BaseModifier = 0;
+            intAttribute.Multiplier = 1f;
+            intAttribute.Total = 0;
+
+            foreach (var modifier in _modifiers)
+            {
+                modifier.ApplyModifiers(intAttribute, (INTAttributeTypes)i);
+            }
+
+            intAttribute.CalculateTotal();
+        }
+    }
+
+    public float GetCurrent(INTAttributeTypes type)
+    {
+        int lookup = (int) type;
+        return _attributes[lookup].Total - _attributes[lookup].Damage;
+    }
+
+    public float GetCurrentPercentageOf(INTAttributeTypes type)
+    {
+        float current = GetCurrent(type);
+        if (current <= 0f)
+            return 0f;
+        return current/_attributes[(int) type].Total*100f;
+    }
 
     public INTAttribute this[INTAttributeTypes type]
     {
@@ -52,11 +93,6 @@ public class INTCharacter : MonoBehaviour
     }
 }
 
-public abstract class INTAttributeModifier
-{
-
-}
-
 public enum INTAttributeTypes
 {   
      Fitness,
@@ -67,8 +103,7 @@ public enum INTAttributeTypes
      Mending,
      Charisma,
      Intimidation,
-     MaxHealth,
-     DamageTaken
+     Health
 }
 
 
