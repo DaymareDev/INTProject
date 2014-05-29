@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class Storage : MonoBehaviour {
+public class ItemStorage : MonoBehaviour {
 	
 	private bool _showGUI = false;
 
