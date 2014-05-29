@@ -5,6 +5,12 @@ public class EquipmentSlot : ItemSlot {
 
 	public Equipment equipment;
 	public SlotType slot;
+	private ItemStorage _playerInventory;
+
+	void Awake()
+	{
+		_playerInventory =(ItemStorage) GameObject.FindGameObjectWithTag("Player").GetComponent<ItemStorage>();
+	}
 
 	protected override Item observedItem {
 		get {
@@ -24,7 +30,7 @@ public class EquipmentSlot : ItemSlot {
 
 	protected override bool AddToPlayersInventory (Item item)
 	{
-		if(GameManager.Instance.PlayerInventory.Additem(item))
+		if(_playerInventory.Additem(item))
 		{
 			return true;
 		}

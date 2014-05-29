@@ -10,6 +10,7 @@ public class ItemStorage : MonoBehaviour {
 	public int MaxSlots;
 	public string StorageName = "Inventory";
 	public bool PlayersInventory;
+	public GameObject StoragePrefab;
 
 	public Item[] Items;
 
@@ -18,17 +19,6 @@ public class ItemStorage : MonoBehaviour {
 
 	void Start()
 	{
-		///tell the gamemanager i am a player inventory
-		if(PlayersInventory)
-		{
-			if(GameManager.Instance.PlayerInventory != null)
-			{
-				Debug.LogError("ERROR:You can only have 1 player inventory");
-				return;
-			}
-
-			GameManager.Instance.PlayerInventory = this;
-		}
 
 		Items = new Item[MaxSlots];
 
@@ -58,7 +48,8 @@ public class ItemStorage : MonoBehaviour {
 
 	void MakeGUI ()
 	{
-		_GUIRef = NGUITools.AddChild(GameManager.Instance.GUIRoot, GameManager.Instance.StoragePrefab);
+		GameObject GUIRoot = GameObject.FindGameObjectWithTag("UIRoot");
+		_GUIRef = NGUITools.AddChild(GUIRoot, StoragePrefab);
 		StorageSlotMaker s = _GUIRef.GetComponent<StorageSlotMaker>();
 		s.BuildSlots(MaxSlots, this, StorageName);
 	}

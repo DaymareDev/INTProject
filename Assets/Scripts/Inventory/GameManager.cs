@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager Instance;
 	public ItemDataBase itemDatabase;
 	public GameObject GUIRoot;
-	public GameObject StoragePrefab;
+
 	public GameObject StorageSlotTemplatePrefab;
 	public ItemStorage PlayerInventory;
 
