@@ -15,4 +15,10 @@ public class Generator : Item {
 	{
 		return new Generator(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		string s = base.ItemName + "\n" + base.Description;
+		return (s);
+	}
 }

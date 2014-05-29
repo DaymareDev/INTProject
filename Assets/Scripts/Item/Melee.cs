@@ -17,4 +17,10 @@ public class Melee : Weapon {
 	{
 		return new Melee(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		string s = base.ItemName + "\n" + base.Description + "\n" + "Exhaustion: " + Exhaustion;
+		return (s);
+	}
 }

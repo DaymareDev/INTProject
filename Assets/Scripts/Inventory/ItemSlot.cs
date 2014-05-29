@@ -28,6 +28,22 @@ public abstract class ItemSlot : MonoBehaviour {
         
 	}
 
+	void OnTooltip (bool show)
+	{
+		if(show)
+		{
+			if(item == null)
+				return;
+
+			string ToolTipText = item.GetItemDescription();
+			UITooltip.ShowText(ToolTipText);
+		}
+		else
+		{
+			UITooltip.ShowText("");
+		}
+	}
+	
 	void OnDragEnd ()
 	{
 		OnDragDropRelease(UICamera.hoveredObject);
@@ -75,22 +91,6 @@ public abstract class ItemSlot : MonoBehaviour {
 		}
 	}
 
-//
-//	void OnClick()
-//	{
-//		if (DraggedItem != null)
-//		{
-//			OnDragDropRelease(UICamera.hoveredObject);
-//			OnDrop(null);
-//		}
-//		else if (item != null)
-//		{
-//			DraggedItem = Replace(null);
-//			UpdateCursor();
-//		}
-//
-//		UpdateCursor();
-//	}
 
 	void OnDoubleClick()
 	{

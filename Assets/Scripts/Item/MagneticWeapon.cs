@@ -18,4 +18,10 @@ public class MagneticWeapon : Weapon {
 	{
 		return new MagneticWeapon(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		string s = base.ItemName + "\n" + base.Description + "\n" + "Battery Recharge: " + BatteryRecharge;
+		return (s);
+	}
 }

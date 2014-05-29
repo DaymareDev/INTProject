@@ -4,10 +4,28 @@ using System.Collections;
 public class Equipment : MonoBehaviour {
 
 	public Item[] items;
+	const GUIGroups GUIGroup = GUIGroups.Charactor;
 
 	// Use this for initialization
 	void Start () {
 		items = new Item[4];
+	}
+
+	public void ToggleMyGUI (GUIGroups group)
+	{
+//		if(group != GUIGroup)
+//			return;
+//		
+//		if(_showGUI)
+//		{
+//			NGUITools.Destroy(_GUIRef);
+//		}
+//		else
+//		{
+//			MakeGUI();
+//		}
+//		
+//		_showGUI =! _showGUI;
 	}
 	
 	public Item GetItem (SlotType slot)

@@ -19,4 +19,10 @@ public class LaserWeapon : Weapon {
 	{
 		return new LaserWeapon(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		string s = base.ItemName + "\n" + base.Description + "\n" + "Cool Down Time: " + CoolDownTime;
+		return (s);
+	}
 }

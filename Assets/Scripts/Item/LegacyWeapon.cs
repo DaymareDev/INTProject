@@ -17,4 +17,10 @@ public class LegacyWeapon : Weapon {
 	{
 		return new LegacyWeapon(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		string s = base.ItemName + "\n" + base.Description + "\n" + "Reload Time: " + ReloadTime;
+		return (s);
+	}
 }

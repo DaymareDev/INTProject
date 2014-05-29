@@ -15,4 +15,10 @@ public class Enhancer : Item {
 	{
 		return new Enhancer(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		string s = base.ItemName + "\n" + base.Description;
+		return (s);
+	}
 }

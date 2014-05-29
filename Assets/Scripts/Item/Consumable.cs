@@ -14,4 +14,10 @@ public class Consumable : Item {
 	}
 
 	public override void Use(){}
+
+	public override string GetItemDescription ()
+	{
+		string s = base.ItemName + "\n" + base.Description;
+		return (s);
+	}
 }

@@ -15,4 +15,10 @@ public class QuestItem : Item {
 	{
 		return new QuestItem(this);
 	}
+
+	public override string GetItemDescription ()
+	{
+		string s = base.ItemName + "\n" + base.Description + "\n";
+		return (s);
+	}
 }

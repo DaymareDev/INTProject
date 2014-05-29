@@ -2,8 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public enum GUIGroups
+{
+	Inventory,
+	MiniMap,
+	Journal,
+	Charactor,
+	Menu
+}
+
+public interface IToggleGUI
+{
+	void ToggleMyGUI (GUIGroups group);
+}
+
 [System.Serializable]
-public class ItemStorage : MonoBehaviour {
+public class ItemStorage : MonoBehaviour, IToggleGUI {
 	
 	private bool _showGUI = false;
 
@@ -12,6 +26,7 @@ public class ItemStorage : MonoBehaviour {
 	public bool PlayersInventory;
 	public GameObject StoragePrefab;
 	public ItemDataBase Database;
+	const GUIGroups GUIGroup = GUIGroups.Inventory;
 
 	public Item[] Items;
 
@@ -28,13 +43,16 @@ public class ItemStorage : MonoBehaviour {
 
 		Items[3] = Database.Get(ItemType.Misc, 0);
 		Items[4] = Database.Get(ItemType.Misc, 0);
-		Items[5] = Database.Get(ItemType.Misc, 0);
+		Items[5] = Database.Get(ItemType.Armor, 0);
 
-		ToggleMyGUI();
+		ToggleMyGUI(GUIGroup);
 	}
 
-	void ToggleMyGUI ()
+	public void ToggleMyGUI (GUIGroups group)
 	{
+		if(group != GUIGroup)
+			return;
+
 		if(_showGUI)
 		{
 			NGUITools.Destroy(_GUIRef);
@@ -146,5 +164,26 @@ public class ItemStorage : MonoBehaviour {
 
 
 	public Item GetItem (int slot) { return (slot < Items.Length) ? Items[slot] : null; }
-	
+
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.I))
+		{
+			if(_showGUI)
+			{
+
+				Component[] components  = GetComponents<Component>();
+
+				foreach(Component component in components)
+				{
+					var temp = component as IToggleGUI;
+					if(temp != null) temp.ToggleMyGUI(GUIGroups.Inventory);
+				}
+			}
+			else if(PlayersInventory)
+			{
+				ToggleMyGUI(GUIGroups.Inventory);
+			}
+		}
+	}
 }
