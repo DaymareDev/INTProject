@@ -90,7 +90,7 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 	
 	public bool Add(int pos, Item item)
 	{
-
+		///passing a none item
 		if(item == null)
 		{
 			Items[pos] = item;
@@ -98,12 +98,15 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 			return true;
 		}
 
+		///check for item postion is empty
 		if(Items[pos] == null)
 		{
 			Items[pos] = item;
 			
 			return true;
 		}
+
+
 		//check to see if the item is stackable
 		if(item.Stackable)
 		{ 
@@ -124,25 +127,19 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 				return true;
 			}
 		}
-		
-		for (int i = 0; i < Items.Length; i++) 
-		{
-			if(Items[i] == item)
-				return false;
-		}
 
 		///check if there is room
 		int slotId = CheckForSpace(item);
 		
 		if(slotId == -1)
 		{
+			//no room
 			return false;
 		}
 		else
 		{
+			//add item in the room slot
 			Add(slotId, item);
-			
-			
 			return true;
 		}
 		
@@ -154,7 +151,6 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 		{
 			if (Items[a] == null) 
 			{
-				
 				return a;
 			}
 		}
