@@ -3,7 +3,7 @@ using System.Collections;
 
 public interface ICommand
 {
-	void Execute();
+	void ExecuteCommand();
 }
 
 
@@ -24,7 +24,7 @@ public class PlayerInputController : MonoBehaviour
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.I))
 		{
-			IinputCommand.Execute();
+			IinputCommand.ExecuteCommand();
 		}
 	}
 }
@@ -38,7 +38,7 @@ public class OpenInventoryCommand : ICommand
 		InventoryOwner = inventoryOwner;
 	}
 
-	public void Execute()
+	public void ExecuteCommand()
 	{
 		InventoryOwner.GetComponent<ItemStorage>().ToggleMyGUI();
 	}
