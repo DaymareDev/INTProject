@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public interface ICommand
 {
@@ -13,18 +14,22 @@ public interface ICommand
 /// 
 public class PlayerInputController : MonoBehaviour
 {
-	public ICommand IinputCommand;
+	public List<KeyValuePair<KeyCode, ICommand>> InputCommands =  new List<KeyValuePair<KeyCode, ICommand>>();
+
 
 	void Start()
 	{
-		IinputCommand = new OpenInventoryCommand(transform.gameObject);
+		InputCommands.Add(new KeyValuePair<KeyCode, ICommand>(KeyCode.I, new OpenInventoryCommand(transform.gameObject)));
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.I))
+		foreach (var item in InputCommands) 
 		{
-			IinputCommand.ExecuteCommand();
+			if(Input.GetKeyDown(item.Key))
+			{
+				item.Value.ExecuteCommand();
+			}
 		}
 	}
 }
