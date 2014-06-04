@@ -13,7 +13,7 @@ public enum GUIGroups
 
 public interface IToggleGUI
 {
-	void ToggleMyGUI (GUIGroups group);
+	void ToggleMyGUI ();
 }
 
 [System.Serializable]
@@ -45,13 +45,12 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 		Items[4] = Database.Get(ItemType.Misc, 0);
 		Items[5] = Database.Get(ItemType.Armor, 0);
 
-		ToggleMyGUI(GUIGroup);
+		//ToggleMyGUI(GUIGroup);
 	}
 
-	public void ToggleMyGUI (GUIGroups group)
+
+	public void ToggleMyGUI ()
 	{
-		if(group != GUIGroup)
-			return;
 
 		if(_showGUI)
 		{
@@ -163,23 +162,23 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.I))
-		{
-			if(_showGUI)
-			{
-
-				Component[] components  = GetComponents<Component>();
-
-				foreach(Component component in components)
-				{
-					var temp = component as IToggleGUI;
-					if(temp != null) temp.ToggleMyGUI(GUIGroups.Inventory);
-				}
-			}
-			else if(PlayersInventory)
-			{
-				ToggleMyGUI(GUIGroups.Inventory);
-			}
-		}
+//		if(Input.GetKeyDown(KeyCode.I))
+//		{
+//			if(_showGUI)
+//			{
+//
+//				Component[] components  = GetComponents<Component>();
+//
+//				foreach(Component component in components)
+//				{
+//					var temp = component as IToggleGUI;
+//					if(temp != null) temp.ToggleMyGUI(GUIGroups.Inventory);
+//				}
+//			}
+//			else if(PlayersInventory)
+//			{
+//				ToggleMyGUI(GUIGroups.Inventory);
+//			}
+//		}
 	}
 }

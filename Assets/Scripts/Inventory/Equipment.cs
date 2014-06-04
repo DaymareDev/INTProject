@@ -13,7 +13,7 @@ public class Equipment : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		items = new Item[4];
-		ToggleMyGUI(GUIGroups.Charactor);
+
 	}
 
 	public void ToggleMyGUI (GUIGroups group)
