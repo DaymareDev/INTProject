@@ -16,11 +16,8 @@ public class Equipment : MonoBehaviour {
 
 	}
 
-	public void ToggleMyGUI (GUIGroups group)
+	public void ToggleMyGUI ()
 	{
-		if(group != GUIGroup)
-			return;
-	
 		if(_showGUI)
 		{
 			NGUITools.Destroy(_GUIRef);
@@ -72,12 +69,5 @@ public class Equipment : MonoBehaviour {
 
 		return false;
 	}
-
-	void Update()
-	{
-		if(Input.GetKeyDown(KeyCode.C))
-		{
-			ToggleMyGUI(GUIGroups.Charactor);
-		}
-	}
+	
 }

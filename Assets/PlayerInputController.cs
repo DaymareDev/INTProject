@@ -20,6 +20,7 @@ public class PlayerInputController : MonoBehaviour
 	void Start()
 	{
 		InputCommands.Add(new KeyValuePair<KeyCode, ICommand>(KeyCode.I, new OpenInventoryCommand(transform.gameObject)));
+		InputCommands.Add(new KeyValuePair<KeyCode, ICommand>(KeyCode.C, new OpenCharacterCommand(transform.gameObject)));
 	}
 
 	// Update is called once per frame
@@ -46,5 +47,20 @@ public class OpenInventoryCommand : ICommand
 	public void ExecuteCommand()
 	{
 		InventoryOwner.GetComponent<ItemStorage>().ToggleMyGUI();
+	}
+}
+
+public class OpenCharacterCommand : ICommand
+{
+	public GameObject CharacterOwner;
+
+	public OpenCharacterCommand(GameObject characterOwner)
+	{
+		CharacterOwner = characterOwner;
+	}
+
+	public void ExecuteCommand()
+	{
+		CharacterOwner.GetComponent<Equipment>().ToggleMyGUI();
 	}
 }
