@@ -23,9 +23,20 @@ public abstract class ItemSlot : MonoBehaviour {
 		_playerInventory =(ItemStorage) GameObject.FindGameObjectWithTag("Player").GetComponent<ItemStorage>();
 	}
 
-	void OnHover(bool isOver)
+	void OnSelect (bool selected) 
 	{
-        
+
+		if(selected)
+		{
+			int whichButton = UICamera.currentTouchID;
+			
+			print (whichButton);
+
+			if(UICamera.currentTouchID == -2)
+			{
+				print ("right click");
+			}
+		}
 	}
 
 	void OnTooltip (bool show)

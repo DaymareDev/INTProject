@@ -51,7 +51,6 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 
 	public void ToggleMyGUI ()
 	{
-
 		if(_showGUI)
 		{
 			NGUITools.Destroy(_GUIRef);
@@ -104,7 +103,6 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 			
 			return true;
 		}
-
 
 		//check to see if the item is stackable
 		if(item.Stackable)
