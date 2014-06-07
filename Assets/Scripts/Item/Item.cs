@@ -9,7 +9,8 @@ public enum SlotType
 	Chest,
 	Legs,
 	Hands,
-	Feet
+	Feet,
+	Weapon
 }
 
 public enum ItemType
