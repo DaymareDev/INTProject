@@ -29,7 +29,7 @@ public abstract class ItemSlot : MonoBehaviour {
 		{
 			if(UICamera.currentTouchID == -2)
 			{
-				print ("right click");
+				RightClickManager.instance.Show(this);
 			}
 		}
 	}
